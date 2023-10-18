@@ -33,7 +33,7 @@ public class HelloController {
 //        om.s.bindBidirectional();
         toText.textProperty().bindBidirectional(om.s);
 
-        resString.setText(om.s.getValue());
+        resString.setText(toText.getText());
 
     }
 
