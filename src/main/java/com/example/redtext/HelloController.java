@@ -20,12 +20,20 @@ public class HelloController {
 
     ObservModel om = new ObservModel();
 
-    protected void initialize(){
+    public void initialize(){
 
         upBtn.setOnAction(actionEvent -> om.addStarUp());
         dwBtn.setOnAction(actionEvent -> om.addStarDown());
 
-        om.s.addListener((ov, s, t1) -> toText.setText(ov.getValue()));
+        om.s.addListener((ov, s, t1) -> {
+            toText.setText(ov.getValue().toString());
+
+        });
+
+//        om.s.bindBidirectional();
+        toText.textProperty().bindBidirectional(om.s);
+
+        resString.setText(om.s.getValue());
 
     }
 
