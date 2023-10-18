@@ -18,6 +18,15 @@ public class HelloController {
     @FXML
     Label resString;
 
+    ObservModel om = new ObservModel();
 
+    protected void initialize(){
+
+        upBtn.setOnAction(actionEvent -> om.addStarUp());
+        dwBtn.setOnAction(actionEvent -> om.addStarDown());
+
+        om.s.addListener((ov, s, t1) -> toText.setText(ov.getValue()));
+
+    }
 
 }
